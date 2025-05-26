@@ -48,6 +48,7 @@ pico_set_program_version(iot_security_lab "0.1")
 pico_enable_stdio_uart(iot_security_lab 0)
 pico_enable_stdio_usb(iot_security_lab 1)
 
+
 # Add the standard library to the build
 target_link_libraries(iot_security_lab
         # Biblioteca padrão do Pico SDK, que fornece funções básicas para o RP2040 (GPIO, temporizadores, UART, etc.).
