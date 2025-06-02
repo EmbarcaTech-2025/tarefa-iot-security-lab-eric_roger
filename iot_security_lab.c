@@ -16,7 +16,7 @@ int main() {
 
     // Configura o cliente MQTT
     // Parâmetros: ID do cliente, IP do broker, usuário, senha
-    mqtt_setup("bitdog1", "192.168.15.7", "aluno", "senha123");
+    mqtt_setup("bitdog1", "192.168.15.11", "aluno", "senha");
 
     // Mensagem original a ser enviada
     const char *mensagem = "26.5";
@@ -28,10 +28,10 @@ int main() {
     // Loop principal do programa
     while (true) {
         // Publica a mensagem original (não criptografada)
-        mqtt_comm_publish("escola/sala1/temperatura", mensagem, strlen(mensagem));
+        //mqtt_comm_publish("escola/sala1/temperatura", mensagem, strlen(mensagem));
         
         // Alternativa: Publica a mensagem criptografada (atualmente comentada)
-        // mqtt_comm_publish("escola/sala1/temperatura", criptografada, strlen(mensagem));
+        mqtt_comm_publish("escola/sala1/temperatura", criptografada, strlen(mensagem));
         
         // Aguarda 5 segundos antes da próxima publicação
         sleep_ms(5000);
@@ -46,8 +46,8 @@ int main() {
  * mosquitto -c mosquitto.conf -v
  * 
  * Assina o tópico de temperatura (recebe mensagens):
- * mosquitto_sub -h localhost -p 1883 -t "escola/sala1/temperatura" -u "aluno" -P "senha123"
+ * mosquitto_sub -h localhost -p 1883 -t "escola/sala1/temperatura" -u "aluno" -P "senha"
  * 
  * Publica mensagem de teste no tópico de temperatura:
- * mosquitto_pub -h localhost -p 1883 -t "escola/sala1/temperatura" -u "aluno" -P "senha123" -m "26.6"
+ * mosquitto_pub -h localhost -p 1883 -t "escola/sala1/temperatura" -u "aluno" -P "senha" -m "26.6"
  */
