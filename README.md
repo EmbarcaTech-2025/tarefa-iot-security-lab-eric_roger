@@ -1,7 +1,6 @@
 # Tarefa: IoT Security Lab - EmbarcaTech 2025
 
-Autores: **Eric Senne Roma**  
-         **Roger Melo**
+Autores: **Eric Senne Roma** e **Roger Melo**
 
 Curso: Residência Tecnológica em Sistemas Embarcados  
 Instituição: EmbarcaTech - HBr  
@@ -211,7 +210,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
          return 0;
      }
      ```
-     ![image.png](attachment:394b0d98-efc5-4004-89c7-7b45e617e625:image.png)
+     ![cripto.png](imagens/cripto.png)
 
 4. **Teste Criptografia Leve (XOR) com Replay**
    
@@ -292,7 +291,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
          return 0;
      }
      ```
-     ![image.png](attachment:c39c0cc0-eee5-45d6-94ce-7cade6adc1c2:image.png)
+     ![replay.png](imagens/replay.png)
 
 ---
 
