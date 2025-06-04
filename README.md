@@ -60,10 +60,10 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
      ```bash
      mosquitto -c CAMINHO\PARA\SEU\mosquitto.conf -v
      ```
-     Exemplo no Windows:
-   ```
+   - Exemplo no Windows:
+     ```bash
      mosquitto -c C:\Users\seu_usuario\caminho\para\mosquitto.conf -v
-   ```
+     ```
 2. Configure o Wi-Fi no Código
    
    - No seu código, coloque o SSID e a senha da sua rede:
