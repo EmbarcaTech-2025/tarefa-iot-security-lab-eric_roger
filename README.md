@@ -66,9 +66,9 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
      ```
 2. Configure o Wi-Fi no Código
    
-   - No seu código, coloque o SSID e a senha da sua rede:
+   - No seu código, coloque o SSID e a senha da sua rede e teste a conexão:
      ```c
-     _Nconnect_to_wifi("Redmiote_10", "12345678");
+     connect_to_wifi("Redmiote_10", "12345678");
      ```
 
 3. Descubra o IP do seu computador
@@ -81,7 +81,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
 
 4. Configure o IP do Broker no Código
    
-   - No seu código, coloque o IP anotado:
+   - No seu código, coloque o IP anotado (PC vai funcionar como Broker) e a senha que você configurou para o Broker em passwd (exemplo: `nqcv9982`):
      ```c
      mqtt_setup("bitdog1", "192.168.115.201", "aluno", "nqcv9982");
      ```
@@ -93,7 +93,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
 
 1. **Teste Publicação Simples (sem criptografia)**
    
-   - Use o exemplo abaixo para publicar mensagens em texto claro:
+   - Use o exemplo abaixo para publicar mensagens:
      ```c
      #include <string.h>
      #include "pico/stdlib.h"
