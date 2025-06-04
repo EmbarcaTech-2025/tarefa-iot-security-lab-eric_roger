@@ -1,10 +1,20 @@
-#include "include/wifi_conn.h"         // Cabeçalho com a declaração da função de conexão Wi-Fi
+#include "include/wifi_conn.h"         // Inclusão do cabeçalho com a declaração da função de conexão Wi-Fi
 #include "pico/cyw43_arch.h"           // Biblioteca para controle do chip Wi-Fi CYW43 no Raspberry Pi Pico W
 #include <stdio.h>                     // Biblioteca padrão de entrada/saída (para usar printf)
 
 /**
  * Função: connect_to_wifi
- * Objetivo: Inicializar o chip Wi-Fi da Pico W e conectar a uma rede usando SSID e senha fornecidos.
+ * 
+ * Inicializa o chip Wi-Fi da Pico W e conecta a uma rede usando SSID e senha fornecidos.
+ * 
+ * @param ssid     Nome da rede Wi-Fi (SSID)
+ * @param password Senha da rede Wi-Fi
+ * 
+ * Funcionamento:
+ * - Inicializa o driver Wi-Fi (CYW43)
+ * - Habilita o modo estação (STA)
+ * - Tenta conectar à rede Wi-Fi usando autenticação WPA2 AES
+ * - Exibe mensagens de sucesso ou erro no terminal
  */
 void connect_to_wifi(const char *ssid, const char *password) 
 {

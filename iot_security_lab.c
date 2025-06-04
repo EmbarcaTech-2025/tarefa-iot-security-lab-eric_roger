@@ -13,9 +13,21 @@
 #include "include/xor_cipher.h"  // Funções de cifra XOR
 
 #ifdef MODO_SUBSCRIBE
+/**
+ * Callback chamada automaticamente ao receber mensagem MQTT.
+ * 
+ * @param topic   Nome do tópico recebido
+ * @param payload Ponteiro para os dados recebidos (criptografados)
+ * @param len     Tamanho dos dados recebidos
+ * 
+ * Funcionamento:
+ * - Descriptografa a mensagem recebida usando XOR
+ * - Faz o parse do JSON para extrair valor e timestamp
+ * - Verifica se a mensagem não é repetida (proteção contra replay)
+ * - Exibe a leitura ou alerta de replay detectado
+ */
 uint32_t ultima_timestamp_recebida = 0; // Armazena o último timestamp recebido para evitar replay
 
-// Callback chamada automaticamente ao receber mensagem MQTT
 void trata_mensagem(const char *topic, const uint8_t *payload, size_t len) 
 {
     uint8_t chave = 42; // Mesma chave usada na criptografia do publish
@@ -50,6 +62,12 @@ void trata_mensagem(const char *topic, const uint8_t *payload, size_t len)
 }
 #endif
 
+/**
+ * Função principal do programa.
+ * 
+ * Inicializa o sistema, conecta ao Wi-Fi, configura o cliente MQTT e executa o loop principal.
+ * O comportamento depende do modo selecionado (PUBLISH ou SUBSCRIBE).
+ */
 int main() 
 {
     stdio_init_all(); // Inicializa as interfaces padrão (USB serial, etc.)
@@ -61,6 +79,13 @@ int main()
     mqtt_setup("bitdog1", "192.168.115.201", "aluno", "nqcv9982");
 
 #ifdef MODO_PUBLISH
+    /**
+     * Modo Publisher:
+     * - Gera mensagem JSON com valor e timestamp
+     * - Criptografa a mensagem usando XOR
+     * - Publica a mensagem criptografada no tópico MQTT
+     * - Exibe a mensagem criptografada em hexadecimal no terminal
+     */
     uint8_t chave = 42; // Chave de criptografia XOR (deve ser igual à do subscriber)
     while (true)
     {
@@ -90,7 +115,11 @@ int main()
 #endif
 
 #ifdef MODO_SUBSCRIBE
-    // Inscreve-se no tópico e define a função de callback para tratar mensagens recebidas
+    /**
+     * Modo Subscriber:
+     * - Inscreve-se no tópico e define a função de callback para tratar mensagens recebidas
+     * - Mantém o programa rodando em loop
+     */
     mqtt_comm_subscribe("escola/sala1/temperatura", trata_mensagem);
 
     while (true)
