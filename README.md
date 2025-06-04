@@ -60,15 +60,15 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
      ```bash
      mosquitto -c CAMINHO\PARA\SEU\mosquitto.conf -v
      ```
-     Exemplo no Windows:
-   ```
+   - Exemplo no Windows:
+     ```bash
      mosquitto -c C:\Users\seu_usuario\caminho\para\mosquitto.conf -v
-   ```
+     ```
 2. Configure o Wi-Fi no Código
    
-   - No seu código, coloque o SSID e a senha da sua rede:
+   - No seu código, coloque o SSID e a senha da sua rede e teste a conexão:
      ```c
-     _Nconnect_to_wifi("Redmiote_10", "12345678");
+     connect_to_wifi("Redmiote_10", "12345678");
      ```
 
 3. Descubra o IP do seu computador
@@ -81,7 +81,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
 
 4. Configure o IP do Broker no Código
    
-   - No seu código, coloque o IP anotado:
+   - No seu código, coloque o IP anotado (PC vai funcionar como Broker) e a senha que você configurou para o Broker em passwd (exemplo: `nqcv9982`):
      ```c
      mqtt_setup("bitdog1", "192.168.115.201", "aluno", "nqcv9982");
      ```
@@ -93,7 +93,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
 
 1. **Teste Publicação Simples (sem criptografia)**
    
-   - Use o exemplo abaixo para publicar mensagens em texto claro:
+   - Use o exemplo abaixo para publicar mensagens:
      ```c
      #include <string.h>
      #include "pico/stdlib.h"
@@ -211,6 +211,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
          return 0;
      }
      ```
+     ![image.png](attachment:394b0d98-efc5-4004-89c7-7b45e617e625:image.png)
 
 4. **Teste Criptografia Leve (XOR) com Replay**
    
@@ -291,6 +292,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
          return 0;
      }
      ```
+     ![image.png](attachment:c39c0cc0-eee5-45d6-94ce-7cade6adc1c2:image.png)
 
 ---
 
