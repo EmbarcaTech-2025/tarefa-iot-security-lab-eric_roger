@@ -211,6 +211,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
          return 0;
      }
      ```
+     ![image.png](attachment:394b0d98-efc5-4004-89c7-7b45e617e625:image.png)
 
 4. **Teste Criptografia Leve (XOR) com Replay**
    
@@ -291,6 +292,7 @@ Em uma rede escolar, cada BitDogLab pode ser configurada com credenciais únicas
          return 0;
      }
      ```
+     ![image.png](attachment:c39c0cc0-eee5-45d6-94ce-7cade6adc1c2:image.png)
 
 ---
 
