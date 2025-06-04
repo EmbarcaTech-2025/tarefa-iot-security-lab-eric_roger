@@ -1,7 +1,6 @@
 # Tarefa: IoT Security Lab - EmbarcaTech 2025
 
-Autores: **Eric Senne Roma**  
-         **Roger Melo**
+Autores: **Eric Senne Roma** e **Roger Melo**
 
 Curso: Residência Tecnológica em Sistemas Embarcados  
 Instituição: EmbarcaTech - HBr  
